@@ -22,6 +22,10 @@ public class Main {
         bejegyzesLista.addAll(fajlBeolvas("bejegyzesek.txt"));
         randomLike();
         konzolraIras();
+        legnepszerubb();
+        Van_e();
+        KevesebbTiszenotnel();
+
 
 
     }
@@ -68,6 +72,34 @@ public class Main {
         ) { bejegyzesek += bejegyzes + "\n";
         }
         System.out.println(bejegyzesek);
+    }
+    public static void Van_e(){
+        System.out.println("3/b feladat:");
+        for (var item: bejegyzesLista) {
+            if(item.likeok>=35){
+                System.out.println("Van olyan bejegyzés, amely 35-nél több likeot kapott.");
+            }else{
+                System.out.println("Nincs olyan bejegyzés, amely 35-nél több likeot kapott.");
+            }
+        }
+    }
+    public static void KevesebbTiszenotnel(){
+        int szam = 0;
+        for (var item: bejegyzesLista
+        ) {
+            if(item.likeok < 15)
+                szam++;
+        }
+        System.out.println("3/c feladat:\nEnnyi bejegyzésre likeoltak 15-nél kevesebben: " + szam);
+    }
+    public static void legnepszerubb(){
+        int max = 0;
+        for (int i = 0; i < bejegyzesLista.size(); i++) {
+            if (bejegyzesLista.get(max).getLikeok() < bejegyzesLista.get(i).getLikeok()){
+                max = i;
+            }
+        }
+        System.out.println("3/a feladat:\nEz a bejegyzés kapta a legtöbb likeot: " + bejegyzesLista.get(max));
     }
 
 }

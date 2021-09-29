@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 public class Bejegyzes {
     private String szerzo;
     private String tartalom;
-    private int likeok=0;
+    public int likeok=0;
     private LocalDateTime letrejott=LocalDateTime.now();
     private LocalDateTime szerkeztve=LocalDateTime.now();
 
@@ -40,7 +40,7 @@ public class Bejegyzes {
     public String toString() {
         return this.szerzo+" - "+this.likeok+" - "+this.letrejott+
                 "\nSzerkesztve: "+this.szerkeztve+"\n"+
-                this.tartalom+"\n";
+                this.tartalom;
     }
 
 }
