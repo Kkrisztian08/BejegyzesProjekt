@@ -15,7 +15,20 @@ public class Main {
         Bejegyzes b2=new Bejegyzes("Lazakirály92", "Ma elmegyek bulizni és nagyon szétcsapom magam");
         bejegyzesLista.add(b1);
         bejegyzesLista.add(b2);
+        UjBejegyzesHozzaAdas();
         //System.out.println(bejegyzesLista);
 
+
+    }
+    public static void UjBejegyzesHozzaAdas(){
+        System.out.println("Adjon meg darabszámot:");
+        int darabSzam= sc.nextInt();
+        for (int i = 0; i < darabSzam; i++) {
+            System.out.println("Ki irta a bejegyzést?");
+            String szerzo=sc.next();
+            System.out.println("Mi a bejegyzés tartalma?");
+            String tartalom=sc.next();
+            bejegyzesLista.add(new Bejegyzes(szerzo,tartalom));
+        }
     }
 }
