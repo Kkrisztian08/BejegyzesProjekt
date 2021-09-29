@@ -19,7 +19,8 @@ public class Main {
         bejegyzesLista.add(b1);
         bejegyzesLista.add(b2);
         UjBejegyzesHozzaAdas();
-        bejegyzesLista.addAll(fajlBeolvas("bejegyzesek.csv"));
+        bejegyzesLista.addAll(fajlBeolvas("bejegyzesek.txt"));
+        randomLike();
         //System.out.println(bejegyzesLista);
 
 
@@ -53,5 +54,12 @@ public class Main {
             System.out.println(ex.getMessage());
         }
         return festmenyLista;
+    }
+    public static void randomLike() {
+        int listaHossza = bejegyzesLista.size();
+        for (int i = 0; i < 20; i++) {
+            int rndSzam = rn.nextInt(listaHossza - 0) + 0;
+            bejegyzesLista.get(rndSzam).like();
+        }
     }
 }
