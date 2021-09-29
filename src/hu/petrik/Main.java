@@ -1,5 +1,8 @@
 package hu.petrik;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -16,6 +19,7 @@ public class Main {
         bejegyzesLista.add(b1);
         bejegyzesLista.add(b2);
         UjBejegyzesHozzaAdas();
+        bejegyzesLista.addAll(fajlBeolvas("bejegyzesek.csv"));
         //System.out.println(bejegyzesLista);
 
 
@@ -30,5 +34,24 @@ public class Main {
             String tartalom=sc.next();
             bejegyzesLista.add(new Bejegyzes(szerzo,tartalom));
         }
+    }
+    public static  List<Bejegyzes> fajlBeolvas(String fajlNev){
+        ArrayList<Bejegyzes> festmenyLista = new ArrayList<>();
+        try {
+            FileReader fr=new FileReader(fajlNev);
+            BufferedReader br=new BufferedReader(fr);
+            String sor= br.readLine();
+            while (sor!=null){
+                String[] adatok=sor.split(";");
+                Bejegyzes bejegyzes= new Bejegyzes(adatok[0],adatok[1]);
+                festmenyLista.add(bejegyzes);
+                sor= br.readLine();
+            }
+            br.close();
+            fr.close();
+        }catch (IOException ex){
+            System.out.println(ex.getMessage());
+        }
+        return festmenyLista;
     }
 }
