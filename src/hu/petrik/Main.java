@@ -25,6 +25,7 @@ public class Main {
         legnepszerubb();
         Van_e();
         KevesebbTiszenotnel();
+        rendezes();
 
 
 
@@ -100,6 +101,13 @@ public class Main {
             }
         }
         System.out.println("3/a feladat:\nEz a bejegyzés kapta a legtöbb likeot: " + bejegyzesLista.get(max));
+    }
+    public static void rendezes(){
+        System.out.println("3/d feladat: Csökkenő sorrendben a bejegyzések: ");
+        Collections.sort(bejegyzesLista, Collections.reverseOrder());
+        for (Bejegyzes bejegyzes: bejegyzesLista) {
+            System.out.println(bejegyzes);
+        }
     }
 
 }
