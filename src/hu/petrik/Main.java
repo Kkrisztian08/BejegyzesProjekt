@@ -21,7 +21,7 @@ public class Main {
         UjBejegyzesHozzaAdas();
         bejegyzesLista.addAll(fajlBeolvas("bejegyzesek.txt"));
         randomLike();
-        //System.out.println(bejegyzesLista);
+        konzolraIras();
 
 
     }
@@ -37,7 +37,7 @@ public class Main {
         }
     }
     public static  List<Bejegyzes> fajlBeolvas(String fajlNev){
-        ArrayList<Bejegyzes> festmenyLista = new ArrayList<>();
+        ArrayList<Bejegyzes> bejegyzesLista = new ArrayList<>();
         try {
             FileReader fr=new FileReader(fajlNev);
             BufferedReader br=new BufferedReader(fr);
@@ -45,7 +45,7 @@ public class Main {
             while (sor!=null){
                 String[] adatok=sor.split(";");
                 Bejegyzes bejegyzes= new Bejegyzes(adatok[0],adatok[1]);
-                festmenyLista.add(bejegyzes);
+                bejegyzesLista.add(bejegyzes);
                 sor= br.readLine();
             }
             br.close();
@@ -53,7 +53,7 @@ public class Main {
         }catch (IOException ex){
             System.out.println(ex.getMessage());
         }
-        return festmenyLista;
+        return bejegyzesLista;
     }
     public static void randomLike() {
         int listaHossza = bejegyzesLista.size();
@@ -62,4 +62,12 @@ public class Main {
             bejegyzesLista.get(rndSzam).like();
         }
     }
+    public static void konzolraIras(){
+        String bejegyzesek = "";
+        for (Bejegyzes bejegyzes: bejegyzesLista
+        ) { bejegyzesek += bejegyzes + "\n";
+        }
+        System.out.println(bejegyzesek);
+    }
+
 }
